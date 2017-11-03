@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
     #your code here
     user = User.new(:username => params[:username], :password => params[:password])
 
-    if user.save && user.username.size > 0
+    if user.save && user.username.size > 0  #leaving a blank username was giving me and empty string, which is truthy.  so I had to make sure the username sting is greater than one and that it saves
       redirect "/login"
     else
       redirect "/failure"
