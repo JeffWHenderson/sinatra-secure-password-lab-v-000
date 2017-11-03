@@ -20,8 +20,11 @@ class ApplicationController < Sinatra::Base
     #your code here
     user = User.find_by(:username => params[:username], :password => params[:password])
     if user.save #&& password is secure
-      
-      
+      redirect "/login"
+    else
+      redirect "/failure"
+    end
+
   end
 
   get '/account' do
