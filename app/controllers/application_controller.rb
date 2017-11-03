@@ -18,7 +18,7 @@ class ApplicationController < Sinatra::Base
 
   post "/signup" do
     #your code here
-    params
+    User.find_by(params[:username])
   end
 
   get '/account' do
